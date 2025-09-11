@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>b_input.html</title>
+    <style>
+    h2 {
+      background-color: black;
+      color: white;
+
+    }
+
+  </style>
+</head>
+<body>
+  <h1>input 태그의 type 속성</h1>
+  <!-- 
+    input 요소: 기본 너비 20자 (초과된 내용은 화면상 생략)
+
+    cf) 많은 내용 작성 시 textarea 사용 권장
+  -->
+
+  <h2>1. text & password 속성값</h2>
+
+  <!-- 
+    text: 일반 텍스트 (기본값/ 주로 id, name, 주소 등 한 줄짜리)
+    password: 입력 내용 확인 X (민감 정보)
+  -->
+    <form>
+      <label>
+        아이디
+        <input type="text" size="10" maxlength="5">
+      </label>
+
+      <label>
+        비밀번호
+        <input type="password">
+      </label>
+
+    </form>
+</body>
+</html>

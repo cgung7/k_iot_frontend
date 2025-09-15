@@ -24,9 +24,17 @@
       color: white;
     }
 
-
-
   </style>
+  <!-- 
+  ? 외부 스타일 시트 연결
+  : link 태그
+
+  cf) link 태그 - 해당 문서와 외부 소스 사이의 관계를 정의하는 태그
+    : 외부 소스(스타일 시트, 동적 JS코드, 기타 파일 등)
+    > rel 속성: 해당 문서와의 관계(relative)
+    > href 속성: 외부 소스 파일 경로
+  -->
+    <link rel="stylesheet" href="./a_css.css">
 </head>
 <body>
   <!-- 
@@ -72,6 +80,9 @@
       - head 태그 내에 style 태그로 정리 (내부에서 스타일 규칙 나열)
 
     - 외부 스타일 시트
+      : 별도의 .css 파일에 스타일 작성
+        , HTML의 link 태그를 통해 연결
+        >> 여러 HTML 문서에 동일한 스타일 재사용 가능 (유지보수 용이)
   -->
   <hr />
   <h1 style="font-size: large; font-weight: 900;">인라인 스타일(h1)</h1>

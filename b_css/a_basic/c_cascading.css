@@ -45,3 +45,25 @@ p {
   % > 같은 속성만 덮어쓰기
   */
 }
+
+/* # 스타일 상속 */
+#container {
+  /* 
+  부모 요소인 container div의 글자색이 
+  span 태그에도 적용(상속)
+  */
+  color: red;
+  background-color: yellow;
+}
+
+#inner {
+  font-weight: 900;
+  background-color: green;
+}
+
+.text {
+  /* 요소에 직접적인 스타일 지정 시, 상속값 생략 */
+  color: lightblue;
+  /* inherit: 상속하다. (inner의 배경색인 green으로 지정)*/
+
+}

@@ -39,6 +39,7 @@
       transition-delay: 2s;
 
       transition: background-color 3s ease-in-out 1s;
+
       transition: all 0.3s ease-in-out;
     
     }
@@ -49,6 +50,7 @@
       border-radius: 50%;
 
     }
+
     .box {
       display: flex;
     }
@@ -92,7 +94,11 @@ opacity: 1;
 
     button:hover {
       background-color: #2980b9;
+      /* 살짝 뜨는 효과 */
       transition: translateY(-2px);
+      /* 살짝 커지는 효과 */
+      transition: scale(1.05);
+      /* 눌러지는 효과 */
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
 
@@ -138,8 +144,10 @@ opacity: 1;
 
     <div id="container">블럭</div>
 
-    <div id="box">
-      <div id="inner"></div>
+    <hr>
+    
+    <div class="box">
+      <div class="inner"></div>
     </div>
 
     <hr>

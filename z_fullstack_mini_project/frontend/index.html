@@ -22,9 +22,10 @@
       <h1 class="logo">LSA<span>PortFolio</span></h1>
       <nav class="nav">
         <ul class="nav-list">
-          <li><a href="#features">기술 스택</a></li>
-          <li><a href="#cards">프로젝트</a></li>
-          <li><a href="#contact">문의</a></li>
+          <li><a href="#tech-stacks">기술 스택</a></li>
+          <li><a href="#projects">프로젝트</a></li>
+          <li><a href="#experiences">경험</a></li>
+          <li><a href="#contacts">연락/링크</a></li>
         </ul>
       </nav>
       <!-- 
@@ -55,8 +56,8 @@
             유도하는 UI 요소에 주로 사용
           -->
           <div class="hero-ctas">
-            <a href="#features" class="btn primary">기술 스택 보기</a>
-            <a href="#cards" class="btn outline">프로젝트 보기</a>
+            <a href="#tech-stacks" class="btn primary">기술 스택 보기</a>
+            <a href="#projects" class="btn outline">프로젝트 보기</a>
           </div>
         </div>
         <div class="hero-right">
@@ -69,11 +70,11 @@
       </div>
     </section>
 
-    <section id="features" class="section">
+    <section id="tech-stacks" class="section">
       <div class="container">
         <h3 class="section-title">기술 스택</h3>
         <!-- ☆ 기술 스택은 향후 /api/public/skills 등으로 교체 가능 ★ -->
-        <ul class="feature-list">
+        <ul class="tech-stack-list">
           <li>프론트 엔드: <code>React</code>, <code>TypeScript</code>상태관리, 접근성, 성능 최적화</li>
           <li>백엔드: <code>Spring Boot</code>, REST API, 보안/JWT, RDB 설계</li>
           <li>빌드/배포: CI/CD, 컨테이너, 정적 호스팅, 모니터링</li>
@@ -82,11 +83,70 @@
       </div>
 
     </section>
-    <section id="cards" class="section">
-
+    <section id="projects" class="section muted">
+      <div class="container">
+        <h3 class="section-title">프로젝트</h3>
+        <!-- ☆ 아래 카드는 데모용. 실제로는 /api/projects 결괴로 동적 렌더린 가능 -->
+         <div class="card-grid">
+          <article class="card">
+            <h4>프로젝트 1</h4>
+            <p>할 일 관리를 위한 풀스택 프로젝트</p>
+            <button class="btn small">데모 보기</button>
+          </article>
+          <article class="card">
+            <h4>프로젝트 2</h4>
+            <p>포트폴리오 풀스택 프로젝트</p>
+            <button class="btn small">데모 보기</button>
+          </article>
+          <article class="card">
+            <h4>프로젝트 3</h4>
+            <p>상품/장바구니/결제 흐름을 구현한 토이 프로젝트</p>
+            <button class="btn small">데모 보기</button>
+          </article>
+          <article class="card">
+            <h4>프로젝트 4</h4>
+            <p>팀 프로젝트</p>
+            <button class="btn small">데모 보기</button>
+          </article>
+         </div>
+      </div>
     </section>
-    <section id="centact" class="section">
+    <section id="experiences" class="section">
+      <div class="container">
+        <h3 class="section-title">교육 이수 경험</h3>
+        <ul class="timeline">
+          <li><strong>2024.06 - 2025.02</strong> | 클라우드 SaaS기반 시니어 케어 ERP 개발</li>
+          <li><strong>2025.02 - 2025.08</strong> | 사물인터넷(IoT) 기반 웹 솔루션 개발</li>
+        </ul>
+      </div>
+    </section>
 
+    <section id="centact" class="section muted">
+      <div class="container contact">
+        <div class="contact-left">
+          <h2 class="section-title">문의</h2>
+          <p>협업 제안, 프로젝트 의뢰, 커리어 상담 모두 환영합니다. 가능한한 빠르게 답변드리겠습니다.</p>
+          <form id="contact-form" class="form">
+            <label for="email">이메일</label>
+            <input type="email" id="email" name="email" placeholder="your-email@example.com" required />
+
+            <label for="message">메세지</label>
+            <textarea name="message" id="message" rows="4" placeholder="프로젝트 범위/일정/예산을 간략히 적어주세요."></textarea>
+
+            <button type="submit" class="btn primary">보내기</button>
+          </form>
+        </div>
+        <div class="contact-right">
+          <!-- ☆ 로그인 상태/프로필 또는 안내 배너 동적 표기 가능 ★ -->
+          <div class="info-banner">
+            <strong>Tip</strong>: 이력서(PDF)와 GitHub, 데모 링크는 상단 버튼 및 프로젝트 카드에서 확인하실 수 있습니다.
+          </div>
+          <div class="social-links">
+            <a href=""></a>
+            <a href=""></a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -99,5 +159,7 @@
       </div>
     </div>
   </footer>
+
+  <script src="./assets/js/app.js"></script>
 </body>
 </html>

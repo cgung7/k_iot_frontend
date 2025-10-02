@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>테스크 상세 페이지</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #f8f8f8;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .navbar .left, .navbar .right {
+      font-size: 14px;
+    }
+
+    .container {
+      padding: 30px 50px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: inline-block;
+      width: 100px;
+      font-weight: bold;
+    }
+
+    .form-group input {
+      padding: 5px;
+      width: 200px;
+    }
+
+    .form-group select {
+      padding: 5px;
+      width: 210px;
+    }
+
+    .section {
+      margin: 30px 0;
+      padding: 50px;
+      background-color: #eee;
+      text-align: center;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="left">&lt;&lt; 사이드바 생성</div>
+    <div class="center">프로젝트 명 / 테스크 제목</div>
+    <div class="right">로그인/로그아웃</div>
+  </div>
+
+  <div class="container">
+    <h1>테스크 제목</h1>
+
+    <div class="form-group">
+      <label>진행 상태:</label>
+      <select>
+        <option>선택하세요</option>
+        <option>진행중</option>
+        <option>완료</option>
+        <option>시작</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>작성자:</label>
+      <input type="text" placeholder="작성자 이름">
+    </div>
+
+    <div class="form-group">
+      <label>담당자:</label>
+      <input type="text" placeholder="담당자 추가">
+      <button>+</button>
+    </div>
+
+    <div class="form-group">
+      <label>마감기간:</label>
+      <input type="date">
+    </div>
+
+    <div class="form-group">
+      <label>중요도:</label>
+      <select>
+        <option>선택하세요</option>
+        <option>낮음</option>
+        <option>중간</option>
+        <option>높음</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>태그:</label>
+      <input type="text">
+      <button>+</button>
+    </div>
+
+    <article>
+    <div class="section">
+      <label for="message">직무 내용</label>
+            <textarea name="message" id="message" rows="4"></textarea>
+    </div>
+    </article>
+    <div class="section">
+      댓글
+    </div>
+  </div>
+
+</body>
+</html>

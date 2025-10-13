@@ -8,6 +8,8 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      display: flex;
+      justify-content:center;
     }
 
     .navbar {
@@ -63,14 +65,15 @@
 </head>
 <body>
 
-  <div class="navbar">
+  <!-- <div class="navbar">
     <div class="left">&lt;&lt; 사이드바 생성</div>
     <div class="center">프로젝트 명 / 테스크 제목</div>
     <div class="right">로그인/로그아웃</div>
-  </div>
+  </div> -->
 
   <div class="container">
     <h1>테스크 제목</h1>
+
 
     <div class="form-group">
       <label>진행 상태:</label>
@@ -83,14 +86,14 @@
     </div>
 
     <div class="form-group">
-      <label>작성자:</label>
-      <input type="text" placeholder="작성자 이름">
+      <label for="createdUser">작성자:</label>
+      <input type="text" id="createdUser" placeholder="작성자 이름">
     </div>
 
     <div class="form-group">
-      <label>담당자:</label>
-      <input type="text" placeholder="담당자 추가">
-      <button>+</button>
+      <label for="assignee">담당자:</label>
+      <input type="text" id="assignee" placeholder="담당자 추가">
+      <button class="inl">+</button>
     </div>
 
     <div class="form-group">
@@ -113,7 +116,6 @@
       <input type="text">
       <button>+</button>
     </div>
-
     <article>
     <div class="section">
       <label for="message">직무 내용</label>

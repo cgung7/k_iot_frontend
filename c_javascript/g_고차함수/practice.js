@@ -14,7 +14,7 @@ function passingScores(scores) {
   const passing = scores.filter(scores => scores >= 60);
 
   // 2) 60점 이상인 점수의 개수: .length
-  const passingCount = scores.length;
+  const passingCount = passing.length;
 
   // 3) 60점 이상인 점수들의 평균: 합의 단일한 값으로 반환 - reduce
   const passingAverage = passing.reduce((acc, scores) => acc + scores, 0) / passingCount;

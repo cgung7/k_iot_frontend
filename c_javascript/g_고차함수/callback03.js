@@ -50,8 +50,8 @@ console.log(numberArray.reverse());
 
 let nums = [5, 4, 6, 1, 7];
 
-let firstOverSix = numberArray.find(num => num > 3);
+let firstOverSix = numberArray.find(nums => nums > 3);
 console.log(firstOverSix); // 5 >> 3 보다 큰 수는 4, 5, 6, 7 이지만 요소의 첫 번째 순서인 5가 출력
 
-let firstOverEightIndex = nums.findIndex(num => num > 8);
+let firstOverEightIndex = nums.findIndex(nums => nums > 8);
 console.log(firstOverEightIndex);

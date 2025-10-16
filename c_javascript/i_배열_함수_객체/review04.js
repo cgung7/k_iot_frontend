@@ -126,3 +126,16 @@ gradeSystem.addStudnet("최광섭", { Math: 90, English: 85, Sciense: 78});
 gradeSystem.addStudnet("이승아", { Math: 80, English: 95, Sciense: 88});
 gradeSystem.addStudnet("조승범", { Math: 85, English: 100, Sciense: 65});
 gradeSystem.addStudnet("김명진", { Math: 70, English: 80, Sciense: 87});
+
+// 전체 학생 평균 출력
+gradeSystem.displayAll();
+
+// 전체 평균 정보 배열 조회
+const averages = gradeSystem.getAverageScore();
+console.log('=== 전체 평균 정보 ===');
+console.log(averages);
+
+// 상위 학생 조회 (예: 평균 84점 이상)
+const top = gradeSystem.getTopStudents(84);
+console.log('=== 평균 84점 이상 상위 학생 (내림차순) ===');
+console.log(top);

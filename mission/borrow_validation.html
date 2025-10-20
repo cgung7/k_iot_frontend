@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>borrow_validation.html</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="container">
+  <div for="memberId"><div>회원번호*</div>
+    <input type="text" class="memberId" required min="1" step="1">
+  </div>
+  <div class="bookId"><div>도서번호*</div>
+    <input type="text" class="bookId" required min="1" step="1">
+  </div>
+  <div class="name"><div>회원 이름*</div>
+    <input type="text" class="name" required pattern="^[가-힣]{2,10}$" title="2~10자 한글만 입력">
+  </div>
+  <div class="email" ><div>이메일 (선택)*</div>
+    <input type="email", pattern="^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$" >
+  </div>
+  <div class="password"><div>비밀번호*</div>
+    <input type="text" class="password" required pattern="^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,16}$" title="8~16자 영문+숫자 조합">
+  </div>
+  <button>대출 요청(시연용)</button>
+  </div>
+  
+</body>
+</html>

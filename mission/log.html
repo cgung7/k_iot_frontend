@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>대출 이력 조회(정적)</title>
+  <link rel="stylesheet" href="./logs.css"/>
+</head>
+<body>
+<main class="container">
+  <h1 class="h1">대출 이력 조회 (정적 목업)</h1>
+
+  <nav class="tabs" aria-label="상태 시나리오">
+    <a class="tab" href="#empty">빈 목록</a>
+    <a class="tab" href="#list" aria-current="page">데이터 있음</a>
+  </nav>
+  <p class="meta">※ 실제 조회는 하지 않으며, 탭을 눌러 **정적 예시 구간**으로 이동합니다.</p>
+
+  <section id="empty" class="card">
+    <h2 class="meta">빈 목록 상태</h2>
+    <p class="notice">조회 결과가 없습니다.</p>
+    <table class="table" aria-label="대출 이력(빈)">
+      <thead><tr><th>logId</th><th>bookId</th><th>result</th><th>message</th><th>createdAt</th></tr></thead>
+      <tbody>
+        <tr><td colspan="5" class="meta">표시는 유지하되 데이터 행 없음</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="list" class="card" style="margin-top:16px">
+    <h2 class="meta">데이터 존재 상태</h2>
+    <table class="table" aria-label="대출 이력(예시)">
+      <thead><tr><th>logId</th><th>bookId</th><th>result</th><th>message</th><th>createdAt</th></tr></thead>
+      <tbody>
+        <tr><td>101</td><td>10</td><td>SUCCESS</td><td>대출 성공</td><td>2025-10-16 10:30</td></tr>
+        <tr><td>102</td><td>11</td><td>FAIL_BOOK</td><td>도서 없음/대출 불가</td><td>2025-10-16 10:40</td></tr>
+        <tr><td>103</td><td>10</td><td>FAIL_MEMBER</td><td>회원 정지로 대출 실패</td><td>2025-10-16 11:00</td></tr>
+      </tbody>
+    </table>
+    <p class="meta">정렬은 “최신순” 가이드만 표기(정적)</p>
+  </section>
+</main>
+</body>
+</html>
+

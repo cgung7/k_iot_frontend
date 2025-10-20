@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 10px;
+}
+
+input {
+  font-size: 10px;
+  border: 1px solid;
+  border-radius: 5px;
+  width: 250px;
+  height: 20px;
+}
+
+input:focus {
+  background-color: lightblue;
+  outline: none;
+}
+
+input:valid {
+  border-color: #2b8a3e;
+  background-color: #e2ffe8;
+}
+
+input:invalid {
+  border-color: #c92a2a;
+  background-color: #fff3f3;
+}
+
+button {
+  font-size: 10px;
+  width: 100px;
+  background-color: #d1d1d1;
+  border: 1px solid;
+  border-radius: 5px;
+  cursor: pointer;
+}

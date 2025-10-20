@@ -1,0 +1,54 @@
+<html lang="ko">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>도서 대출 요청(정적)</title>
+  <link rel="stylesheet" href="./borrow.css"/>
+</head>
+<body>
+<main class="container">
+  <h1 class="h1">도서 대출 요청 (정적 목업)</h1>
+
+  <!-- 탭(정적 링크) : 상태 시나리오로 이동 -->
+  <nav class="tabs" aria-label="상태 시나리오">
+    <a class="tab" href="#success">성공 보기</a>
+    <a class="tab" href="#fail-member">회원 정지 보기</a>
+    <a class="tab" href="#fail-book">도서 불가 보기</a>
+  </nav>
+  <p class="meta">※ 상단 탭은 실제 동작이 아니라 <span class="kbd">:target</span>을 이용한 정적 상태 전환 예시입니다.</p>
+
+  <section class="card" aria-labelledby="form-title">
+    <h2 id="form-title" class="sr-only">대출 입력 폼</h2>
+    <form novalidate>
+      <div class="row">
+        <div style="flex:1 1 220px">
+          <label for="memberId">회원번호 <span aria-hidden="true" class="meta">(필수, 1 이상)</span></label>
+          <input id="memberId" name="memberId" type="number" min="1" required placeholder="예) 1"/>
+          <div class="helper">유효하지 않은 값은 빨간 테두리로 표시됩니다(:invalid).</div>
+        </div>
+        <div style="flex:1 1 220px">
+          <label for="bookId">도서번호 <span class="meta" aria-hidden="true">(필수)</span></label>
+          <input id="bookId" name="bookId" type="number" min="1" required placeholder="예) 10"/>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:12px">
+        <button class="btn" type="button" aria-disabled="true">대출 요청(시연용, 비활성)</button>
+      </div>
+
+      <!-- 결과 알림(정적): 탭 링크(#success 등)로 스크롤하면 예시가 보임 -->
+      <div id="success" class="notice ok" role="status" aria-live="polite">
+        예시) 대출 성공 — 처리 시각: 2025-10-16T10:30
+      </div>
+      <div id="fail-member" class="notice bad" role="status" aria-live="polite">
+        예시) 회원 정지로 대출 실패
+      </div>
+      <div id="fail-book" class="notice bad" role="status" aria-live="polite">
+        예시) 도서 없음/대출 불가
+      </div>
+    </form>
+  </section>
+</main>
+</body>
+</html>
+

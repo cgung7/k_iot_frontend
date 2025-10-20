@@ -30,9 +30,9 @@ const bookObject = {
 
 //? 객체는 배열과 달리 순서 상관이 없음
 // : 각각 연결된 속성명으로 값이 자동 전달
-const {publisher, price, name} = bookObject;
+const {publisher, price, name, auther} = bookObject;
 
-console.log(publisher, price, name); // 코리아 IT, 18000, JS 공부하기 undefined
+console.log(publisher, price, name, auther); // 코리아 IT, 18000, JS 공부하기 undefined
 
 // cf) 속성명을 변수로 지정하지 않고 새로운 식별자 사용
 const { aaa=name, bbb=price } = bookObject;

@@ -19,7 +19,7 @@ let data = [
     job: 'developer',
     hobby: {
       first: 'exercise',
-      secont: 'reading'
+      second: 'reading'
     },
     lecture: ['java', 'python', 'dbms']
   },
@@ -28,7 +28,8 @@ let data = [
     age: 30,
     job: 'employee',
     hobby: {
-      first: 'health'
+      first: 'health',
+      second: 'baseball'
     }
   }
 ];
@@ -42,3 +43,21 @@ console.log(data);
 console.log('== JSON으로 변환');
 console.log(JSON.stringify(data));
 // >> JSON은 데이터를 주고받기 펴하게 일관화하는 방법ㅇ 최대한 공백 없이 사용
+
+// cf) stringify() 메서드 인자 (가독성 옵션)
+// : (JSON으로 변환할 객체 데이터, 속성 추출, 들려쓰기 N칸)
+
+// - 속성 추출: 원하는 객체 속성만 가져오기 (비워둘 경우 null 지정)
+console.log('name, age 속성 추출 데이터');
+console.log(JSON.stringify(data, ['name', 'age']));
+
+console.log('들려쓰기 설정 JSON 데이터');
+console.log(JSON.stringify(data, null, 2)); // space 칸 기준 들여쓰기 설정 (2 권장)
+
+//! 2) JSON.parse(JSON 데이터)
+// : JSON 문자열을 JS 객체로 변환
+let jsonData = JSON.stringify(data);
+console.log(jsonData);
+
+console.log('자바스크립트 객체 출력');
+console.log(JSON.parse(jsonData));

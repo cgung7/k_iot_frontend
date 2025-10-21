@@ -9,7 +9,7 @@ import { TodoManager } from "./TodoManager.js";
 // : TodoManager 모듈의 기능을 사용하여 할 일 앱 구현
 // - 이벤트 등록, 할 일 목록 수정 등 로직을 담당
 
-//? TodoManager의 인스턴스 생성
+//? TodoManager의 인스턴스를 생성
 const todoManager = new TodoManager();
 
 // 콘텐츠 로드 이벤트 실행
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const text = input.value.trim();
 
     if (text !== '') {
-      // 텍스트가 비워져 있지 않다면
+      // 텍스트가 비워져있지 않다면
       todoManager.addTodo(text);
       input.value = '';
       updateTodoList(); // 리스트 업데이트
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateTodoList();
       });
 
-      // ul > li > button
+      // ul >> li >> button
       li.appendChild(deleteButton);
       todoList.appendChild(li);
     });

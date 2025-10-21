@@ -49,7 +49,12 @@ toggleCompleted(id) {
 }
 
 // 3) 특정 할 일 항목을 제거 (삭제)
+removeTodo(id) {
+this.todos = this.todos.filter(todo => todo.id !== id);
+}
 
 // 4) 저장된 모든 할 일 목록을 반환 (전체 조회)
-
+getTodos() {
+  return this.todos;
+}
 }

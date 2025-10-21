@@ -71,4 +71,29 @@ myPromise
   .finally(() => {
     console.log('무조건 실행');
   });
-// >> 비동기 작업을 순서대로 깔끔하게 처리 가능 (콜백 중첩 없이 순서가 명확)
+// >> 비동기 작업을 순서대로 깔끔하게 처리 가능 (콜백 중첩 없이 순서가 명확
+
+//! == 프로미스 예시 (체이닝 & 에러) == 
+// '데이터 가져오기'
+function fetchUserData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve('데이터 가져오기 성공'), 2000);
+  });
+}
+
+// '데이터 처리하기'
+function processUserData(data) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve(`${data} 사용하기`), 2000);
+  });
+}
+
+fetchUserData()
+  .then(result => processUserData(result))
+  .then(processResult => console.log(processResult)) // 데이터 가져오기 성공 사용하기
+  .catch(error => console.log(error));
+
+
+//? console.error(): 웹 콘솔에 에러 메세지 출력
+
+console.log(`메인 로직의 실행`);

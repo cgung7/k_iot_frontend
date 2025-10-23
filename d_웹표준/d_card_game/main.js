@@ -16,12 +16,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const completedButton = document.getElementById('completed-button');
 
   //! 색상 배열 정의 (6개 - 임의의 색상 지정 가능)
-  const colors= [ 'black', 'red', 'yellow', 'pink', 'orange', 'blue' ];
+  const colors= [ 'black', 'red', 'yellow', 'pink', 'orange', 'blue', "white", "green", "purple", "lightblue" ];
 
   //! colors 배열의 색성을 복제하여 새로운 배열 cardColors 생성
   //? 스프래드(...) 연산자 사용
   //  >> 모든 요소를 새로운 배열에 두 배 포함되도록 복사
   let cardColors = [ ...colors, ...colors ];
+
+  //   const colors = [
+  //   "#cc3131",
+  //   "#e3ddbb",
+  //   "#23b923",
+  //   "#34bcbc",
+  //   "#3939db",
+  //   "#e5b7e4",
+  // ];
 
   //& 1. 게임을 초기화하는 함수
   // 1) cardColors 색생 배열 섞기
@@ -37,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cardContainer.innerHTML = '';
 
     //? 12개 카드를 for 반복문으로 생성하여 HTML 요소로 할당
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < 20; i++) {
       cardContainer.innerHTML += `
       <div class="card">
           <div class="card-inner">

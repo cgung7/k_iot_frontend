@@ -84,6 +84,19 @@
 //                (타입스크립트 전역 설치 완료 시 tsc --init 만 입력해도 가능)
 
 //! tsconfig.json 내부 구조
+// {
+//   "compilerOptions": {
+//     "target": "ES2020",                 //? 변환될 JS 버전  
+//     "module": "CommonJS",               //? Node.js는 CommonJS 모듈 사용
+//     "rootDir": "./src",                 //? TypeScript 원본 코드 폴더
+//     "outDir": "./dist",                 //? 컴파일된 JS 출력 폴더
+//     "strict": true,                     //? 타입 검사 강화
+//     "esModuleInterop": true,            //? import express from "express" 형태 사용
+//     "skipLibCheck": true,               //? 라이브러리 타입 검사 생략으로 속도 향상
+//     "forceConsistentCasingInFileNames": true
+//   },
+//   "include": ["src/**/*"]
+// }
 
 //& 5. 타입스크립트 코드 컴피알 및 실행
 // tsc(typescript complier)

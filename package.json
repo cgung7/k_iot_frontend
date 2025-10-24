@@ -1,44 +1,51 @@
 {
-  
+  
   "name": "k6_iot_frontend",
-  
+  
   "version": "1.0.0",
-  
+  
   "description": "",
-  
+  
   "type": "module",
-  
+  
   "main": "index.js",
-  
+  
   "scripts": {
-  
-    
+  
+    
   "test": "echo \"Error: no test specified\" && exit 1"
-  
+  
   },
-  
+  
   "repository": {
-  
-    
+  
+    
   "type": "git",
-  
-    
+  
+    
   "url": "git+https://github.com/devgiants75/korea_sleepTech_front.git"
-  
+  
   },
-  
+  
   "keywords": [],
-  
+  
   "author": "",
-  
+  
   "license": "ISC",
-  
+  
   "bugs": {
-  
-    
+  
+    
   "url": "https://github.com/devgiants75/korea_sleepTech_front/issues"
-  
+  
   },
-  
-  "homepage": "https://github.com/devgiants75/korea_sleepTech_front#readme"
+  
+  "homepage": "https://github.com/devgiants75/korea_sleepTech_front#readme",
+  
+  "devDependencies": {
+  
+    
+  "ts-node": "^10.9.2"
+  
+  }
 }

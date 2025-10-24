@@ -65,7 +65,29 @@
 // - 프로젝트 별 설치 (개발 의존성 설치)
 //    : 현재 사용하고 있는 프로젝트 내에 기능추가
 //    >> npm install typescript --save-dev 
+//       npm i typescript -D
+
+// +) --save-dev(-D) VS --save(-S)
+// : devDependencies - 개발과정에서 필요한 패키지들의 목록
+// : depandencies    - 프로젝트 실행에 필요한 패키지들의 목록
 
 //? 프로젝트 내의 타입스크립트 버전 확인(설치 확인)
 // : tsc -v (Version 5.9.3)
 
+//& 4. TypeScript 설정 파일 생성
+// : npx tsc --init (프로젝트 루트 경로에서 설치)
+// ? npx
+//   cf) tsc는 TypeScript의 컴파일러
+//        >> npm으로 설치 시 프로젝트 로컬에만 설치
+//        >> npx는 npm이 제공하는 실행 도우미
+//            : 로컬의 실행 파일을 찾아서 전역 설치
+//                (타입스크립트 전역 설치 완료 시 tsc --init 만 입력해도 가능)
+
+//! tsconfig.json 내부 구조
+
+//& 5. 타입스크립트 코드 컴피알 및 실행
+// tsc(typescript complier)
+// TS파일을 JS파일로 변환하는 도구
+// - tsc 파일명.ts
+//    >> 동일한 파일명의 파일명.js
+// - node 파일명.js 

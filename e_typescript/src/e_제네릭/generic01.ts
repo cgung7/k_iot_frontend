@@ -32,6 +32,9 @@ function pair<T, U>(first: T, second: U): [T, U] {
 let pair1 = pair<string, number>('안녕', 123);
 let pair2 = pair<number, string>(123, '안녕');
 
+console.log(pair1);
+console.log(pair2);
+
 // +) 제네릭과 타입 단언 활용
 function pairFunc<T, U>(first: T, second: T): U {
   return [first, second] as U; // U === T[]

@@ -34,59 +34,56 @@ interface TodoItem {
 //% 할 일 추가 함수
 function addTodo(todos: TodoItem[], task: string): TodoItem[] {
   const newTodo: TodoItem = {
-    id: Math.max(0, ...todos.map(todo => todo.id)) + 1,
-        task: task,
-        completed: false
-  }
+    id: Math.max(0, ...todos.map((todo) => todo.id)) + 1,
+    task: task,
+    completed: false,
+  };
 
-  const newTodos = [ ...todos, newTodo ];
+  const newTodos = [...todos, newTodo];
 
   return newTodos;
 }
-
 
 //^ 2. 요구 사항 정리 (map & filter 사용)
 
 // 4) 특정 상태(completed)에 따라 Todo 항목을 필터링하는 함수(filterTodos)
 // 6) 모든 Todo 항목의 completed 상태를 일괄적으로 설정하는 함수(setAllTodosCompletion)
-function setAllTodosCompletion(todos: TodoItemp[]) {
-  const changeTodos = todos.map(todo => todo.completed);
+// function setAllTodosCompletion(todos: TodoItemp[]) {
+//   const changeTodos = todos.map((todo) => todo.completed);
 
-  return changeTodos;
-}
+//   return changeTodos;
+// }
 
 //^ 3. 프로그램 구현
 // 1) 특정 id를 가진 Todo 항목의 task를 편집하는 함수(editTodo)
 function editTodo(todos: TodoItem[], id: number) {
-  const changeTodos = todos.map(todo => 
+  const changeTodos = todos.map((todo) =>
     todo.id === id ? { ...todo, task: todo.task } : todo
   );
-    return changeTodos;
+  return changeTodos;
 }
 
 // 2) 완료된 Todo 항목을 모두 삭제하는 함수(clearCompleted)
 function clearCompleted(todos: TodoItem[], completed: boolean) {
-  const changeTodos = todos.filter(todo => todo.completed !== true);
+  const changeTodos = todos.filter((todo) => todo.completed !== true);
 
   return changeTodos;
 }
 
 // 3) 모든 Todo 항목을 조회하는 함수(getAllTodos)
 function getAllTodos(todos: TodoItem[]) {
-  const allTotos = todos.filter(todo => todo);
-  
+  const allTotos = todos.filter((todo) => todo);
+
   return allTotos;
 }
 
 // 5) 특정 id를 가진 Todo 항목의 completed 상태를 토글하는 함수(toggleTodo)
 function toggleTodo(todos: TodoItem[], id: number) {
-  const changeTodos = todos.map(todo => 
+  const changeTodos = todos.map((todo) =>
     todo.id === id ? { ...todo, completed: todo.completed } : todo
   );
-    return changeTodos;
+  return changeTodos;
 }
-
-
 
 //^ 4. 프로그램 실행
 let todos: TodoItem[] = [];

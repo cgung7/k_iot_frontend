@@ -38,7 +38,7 @@ class TaskManager<T> {
   removeTask(id: number): void {
     this.tasks = this.tasks.filter((task) => task.id != id);
 
-    this.renderTasks('task-list'); // 삭제된 요소가 반영된 렌더링
+    this.renderTasks("task-list"); // 삭제된 요소가 반영된 렌더링
 
     this.updateTaskCount();
   }
@@ -48,16 +48,16 @@ class TaskManager<T> {
   renderTasks(taskListId: string): void {
     const taskList = document.getElementById(taskListId) as HTMLUListElement;
 
-    taskList.innerHTML = '';
+    taskList.innerHTML = "";
 
-    this.tasks.forEach(task => {
-      const li = document.createElement('li');
+    this.tasks.forEach((task) => {
+      const li = document.createElement("li");
 
       li.textContent = `${task.task}`;
 
       // 삭제 버튼 생성
-      const deleteButton = document.createElement('button');
-      deleteButton.textContent = '삭제';
+      const deleteButton = document.createElement("button");
+      deleteButton.textContent = "삭제";
 
       deleteButton.onclick = () => {
         this.removeTask(task.id);
@@ -65,7 +65,7 @@ class TaskManager<T> {
 
       // 완료 체크 박스 추가
       const checkbox = document.createElement("input");
-      checkbox.type = 'checkbox';
+      checkbox.type = "checkbox";
 
       checkbox.checked = task.completed;
 
@@ -73,7 +73,7 @@ class TaskManager<T> {
       checkbox.onchange = () => {
         task.completed = !task.completed;
         this.renderTasks(taskListId);
-      }
+      };
 
       if (task.completed) {
         li.style.textDecoration = "line-through";
@@ -95,7 +95,7 @@ class TaskManager<T> {
 
   //% 4. 할 일 개수 업데이트 함수 (updateTaskCount)
   updateTaskCount() {
-    const countElement = document.getElementById('task-count');
+    const countElement = document.getElementById("task-count");
 
     if (countElement) {
       countElement.textContent = `할 일 개수: ${this.tasks.length}`;
@@ -104,22 +104,22 @@ class TaskManager<T> {
 }
 
 //! TaskManager 객체 생성 (프로젝트 실행)
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   const taskManager = new TaskManager<string>();
 
   //? DOM 요소 가져오기
-  const addButton = document.getElementById('add-button') as HTMLButtonElement;
+  const addButton = document.getElementById("add-button") as HTMLButtonElement;
   const newTaskInput = document.getElementById(
-    'task-input'
+    "task-input"
   ) as HTMLInputElement;
 
-  addButton.addEventListener('click', () => {
-    if (newTaskInput.value.trim() !== '') {
+  addButton.addEventListener("click", () => {
+    if (newTaskInput.value.trim() !== "") {
       // 새로운 할 일 생성
       taskManager.addTask(newTaskInput.value);
-      taskManager.renderTasks('task-list');
+      taskManager.renderTasks("task-list");
 
-      newTaskInput.value = '';
+      newTaskInput.value = "";
     }
-  })
+  });
 });

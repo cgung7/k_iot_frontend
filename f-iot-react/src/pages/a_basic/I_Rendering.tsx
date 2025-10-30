@@ -102,8 +102,8 @@ function I_Rendering() {
     return <li key={index}>{person}</li>
 });
 
-  //& filter 콜배갛ㅁ수를 사용한 배열 렌더링
-  // : 요소 개수 변화 O
+  //& filter 콜백함수를 사용한 배열 렌더링
+  // : 요소 개수 변화 
   // - 조건에 따른 렌더린
   const businessPeople = peopleDescription.filter(person => person.job === '교육생');
 

@@ -8,6 +8,7 @@ import D_JSX from "./D_JSX";
 import E_JSX from "./E_JSX";
 import G_Props from "./G_Props";
 import H_Props from "./H_Props";
+import I_Rendering from "./I_Rendering";
 
 const h2Style = {
   backgroundColor: "black",
@@ -47,6 +48,9 @@ function Index() {
       <G_Props />
 
       <H_Props />
+
+      <h2 style={h2Style}>5. Reandering: 조건부 렌더링</h2>
+      <I_Rendering />
 
     </div>
   );

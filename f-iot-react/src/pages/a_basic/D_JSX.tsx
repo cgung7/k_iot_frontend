@@ -39,7 +39,7 @@ import React from 'react'
 function Div() {
   return (
     <>
-    <img src="" alt="" />
+    <img src="a" alt="" />
     <hr />
     <br />
     <input type="text" />

@@ -77,7 +77,7 @@ function State01() {
     // setConst(count - 1);
     // setConst(count - 1);
 
-    setConst(prevCount => prevCount - 1)
+    setConst(prevCount => prevCount - 1);
     setConst(prevCount => prevCount - 1); 
   }
   return (

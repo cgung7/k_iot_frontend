@@ -1,5 +1,5 @@
-import React from 'react'
-import Index from '.';
+import React from "react";
+import Index from "../../pages/a_basic";
 
 /*
 # 복습 문제 (1)
@@ -34,33 +34,29 @@ interface GreetingProps {
   message?: string;
 }
 
-function GreetingCard ({ name, message }: GreetingProps) {
+function GreetingCard({ name, message }: GreetingProps) {
   return (
-    <li>{name} 이(가) 말해요. {message || "Hell!"}</li>
-  )
+    <li>
+      {name} 이(가) 말해요. {message || "Hell!"}
+    </li>
+  );
 }
 
-
 function Z_Example01() {
-
   const users = [
-  { name: '곰', message: '오늘도 살려주세요!' },
-  { name: '호랑이' },
-  { name: '사자', message: '리액트 어려워요!' }
-]
+    { name: "곰", message: "오늘도 살려주세요!" },
+    { name: "호랑이" },
+    { name: "사자", message: "리액트 어려워요!" },
+  ];
   return (
     <div>
       <ul>
         {users.map((user, index) => (
-          <GreetingCard
-          key={index}
-          name={user.name}
-          message={user.message}
-          />
+          <GreetingCard key={index} name={user.name} message={user.message} />
         ))}
       </ul>
     </div>
-  )
+  );
 }
 
-export default Z_Example01
+export default Z_Example01;

@@ -10,8 +10,8 @@ import G_Props from "./G_Props";
 import H_Props from "./H_Props";
 import I_Rendering from "./I_Rendering";
 import J_Handler from "./J_Handler";
-import Z_Example01 from "./Z_Example01";
-import Z_Example02 from "./Z_Example02";
+import Z_Example01 from "../../_practice/a_basic/Z_Example01";
+import Z_Example02 from "../../_practice/a_basic/Z_Example02";
 
 const h2Style = {
   backgroundColor: "black",
@@ -40,7 +40,7 @@ function Index() {
       {/* 컴포넌트: 재사용 가능한 UI 집합 */}
       <div style={{ backgroundColor: "pink" }}>
         <Img />
-      {Img()}
+        {Img()}
       </div>
 
       <h2 style={h2Style}>3. JSX(TSX): 리액트의 기본 문법</h2>

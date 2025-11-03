@@ -50,7 +50,7 @@ function State01() {
   const [count, setConst] = useState<number>(0);
   const [message, setMessage] = useState<string>('안녕하세요.');
   // if (true) {
-    const [msg, setMsg] = useState<string>('반갑습니다.');
+  const [msg, setMsg] = useState<string>('반갑습니다.');
   // }
 
   //^ 이벤트 핸들러 정의

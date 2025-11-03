@@ -19,7 +19,7 @@ function State05() {
   const [name, setName] = useState<string>("");
   const [isVisiable, setIsVisiable] = useState<boolean>(false);
   const [user, setUser] = useState<User>(initialUser);
-  const [item, setItem] = useState<string[]>([]);
+  const [items, setItem] = useState<string[]>([]);
   // : 배열의 경우 초기값에 주로 []빈 배열 설정
 
   //^ ===Event Handler === //
@@ -31,6 +31,12 @@ function State05() {
       [name]: value,
     })
 
+  }
+
+  const handleAddItem = () => {
+    const newItem = `Item ${items.length}`;
+    setItem([...items, newItem]);
+    // setItem(items.push(newItem))''
   }
 
   return (
@@ -83,6 +89,10 @@ function State05() {
         value={user.name}
         onChange={handleUserChange}
       />
+
+      {/* 배열: 배열 요소 추가 */}
+      <p>Items: {items}</p>
+      <button onClick={handleAddItem}>아이템 추가</button>
     </div>
   );
 }

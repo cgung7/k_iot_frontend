@@ -12,11 +12,7 @@ function Practice02() {
     "메세지 5",
     "메세지 6",
     "메세지 7",
-    "메세지 8",
-    "메세지 9",
-    "메세지 10",
-    "메세지 11",
-    "메세지 12",
+    "메세지 8"
   ]);
 
   const messageEndRef = useRef<HTMLDivElement>(null);
@@ -25,11 +21,11 @@ function Practice02() {
   // const messages = Array.from({ length: 15 }, (_, i) => `메세지 ${i + 1}`);
 
   //? message 값이 갱신될 때마다 콜백 함수 실행
-  useEffect(() => {
+  // useEffect(() => {
     // behavior 속성: 이동 효과를 설정
     // block 속성: 스크롤 맞춤 설정 (end: 하단 맞춤, center: 중앙 맞춤)
-    messageEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end'})
-  },[messages]);
+  //   messageEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end'})
+  // },[messages]);
 
 
 
@@ -50,7 +46,7 @@ function Practice02() {
         border: '1px solid #ccc',
         // 콘텐츠가 지정된 영역을 넘어설 때에만 스크롤바를 자동으로 생성
         overflow: 'auto',
-        height: '200px'
+        height: '100px'
       }}>
         {messages.map(msg => <div key={msg}>{msg}</div>)}
         <div ref={messageEndRef}/>

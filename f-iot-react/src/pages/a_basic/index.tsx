@@ -12,6 +12,7 @@ import I_Rendering from "./I_Rendering";
 import J_Handler from "./J_Handler";
 import Z_Example01 from "../../_practice/a_basic/Z_Example01";
 import Z_Example02 from "../../_practice/a_basic/Z_Example02";
+import ToggleSection from "@/components/ToggleSection";
 
 const h2Style = {
   backgroundColor: "black",
@@ -24,45 +25,54 @@ function Index() {
   return (
     <div>
       <h1
-        style={{
-          backgroundColor: "black",
-          color: "white",
-        }}
-      >
+        style={{ 
+          backgroundColor: "black", 
+          padding: '20px',
+          color: "white", 
+          borderRadius: '4px',
+          textAlign: 'center'
+          }}>
         === 리액트 기본 문법 ===
       </h1>
-      <h2 style={h2Style}>1. 리액트 VS 타입스크립트 (카운터 예제)</h2>
+      <ToggleSection title='1. 리액트 VS 타입스크립트 (카운터 예제)'>
       {/* 컴포넌트는 주로 단일 태그로 사용 */}
       <B_Counter />
+      </ToggleSection>
 
-      <h2 style={h2Style}>2. Component: 리액트를 구성하는 기본 구조</h2>
+      <ToggleSection title='2. Component: 리액트를 구성하는 기본 구조'>
       <C_Component />
       {/* 컴포넌트: 재사용 가능한 UI 집합 */}
       <div style={{ backgroundColor: "pink" }}>
         <Img />
         {Img()}
       </div>
+      </ToggleSection>
 
-      <h2 style={h2Style}>3. JSX(TSX): 리액트의 기본 문법</h2>
+      <ToggleSection title='3. JSX(TSX): 리액트의 기본 문법'>
       <D_JSX />
       <E_JSX />
+      </ToggleSection>
 
-      <h2 style={h2Style}>4. Props: 리액트의 데이터 전달 (부모/자식)</h2>
+      <ToggleSection title='4. Props: 리액트의 데이터 전달 (부모/자식)'>
       <G_Props />
-
       <H_Props />
+      </ToggleSection>
 
-      <h2 style={h2Style}>5. Reandering: 조건부 렌더링</h2>
+      <ToggleSection title='5. Reandering: 조건부 렌더링'>
       <I_Rendering />
+      </ToggleSection>
 
-      <h2 style={h2Style}>6. Handler: 리엑트의 이벤트 핸들러</h2>
+      <ToggleSection title='6. Handler: 리엑트의 이벤트 핸들러'>
       <J_Handler />
+      </ToggleSection>
 
-      <h2 style={h2Style}>Example01</h2>
+      <ToggleSection title='Example01'>
       <Z_Example01 />
+      </ToggleSection>
 
-      <h2 style={h2Style}>Example02</h2>
+      <ToggleSection title='Example02'>
       <Z_Example02 />
+      </ToggleSection>
     </div>
   );
 }

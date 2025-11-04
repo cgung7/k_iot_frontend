@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import A_DashBoardStats from "./A_DashBoardStats";
 import A_DashBoardSettings from "./A_DashBoardSettings";
 import A_DashBoard from "./A_DashBoard";
+import ToggleSection from "@/components/ToggleSection";
 
 //! React Router DOM
 // : React 애플리케이션에서 라우팅을 담당하는 "라이브러리"
@@ -53,10 +54,16 @@ function Index() {
   return (
     <div>
       <h1
-        style={{ backgroundColor: "black", color: "white", }}>
+        style={{ 
+          backgroundColor: "black", 
+          padding: '20px',
+          color: "white", 
+          borderRadius: '4px',
+          textAlign: 'center'
+          }}>
         === 리액트 라우터 돔===
       </h1>
-      <h2 style={h2Style}>1. 중첩(Nested) 라우트 예시</h2>
+      <ToggleSection title='1. 중첩(Nested) 라우트 예시'>
       <Routes>
         {/* /dashboard */}
         <Route path="dashboard" element={<A_DashBoard />}>
@@ -68,7 +75,7 @@ function Index() {
 
         </Route>
       </Routes>
-
+    </ToggleSection>
     </div>
   );
 }

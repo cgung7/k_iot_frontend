@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 
 /*
   ! useEffect 주의사항
@@ -39,12 +39,12 @@ import React, { useEffect, useState } from 'react'
 type ReservationStatus = "PENDING" | "CONFIRMED" | "CANCELLED";
 
 type Reservation = {
-  id: number;                   // 예약 고유 ID
-  customer_name: string;        // 고객 이름
-  truck_name:string;            // 예약한 푸드트럭 이름
-  time_slot: string;            // 예약 시간대 (EX: 12:30 PM)
-  status: ReservationStatus;    // 예약 상태 (대기 / 승인 / 취소)
-}
+  id: number; // 예약 고유 ID
+  customer_name: string; // 고객 이름
+  truck_name: string; // 예약한 푸드트럭 이름
+  time_slot: string; // 예약 시간대 (EX: 12:30 PM)
+  status: ReservationStatus; // 예약 상태 (대기 / 승인 / 취소)
+};
 
 //! 2. API 엔드포인트 (현재는 mock 데이터)
 // : 실제 서비스에서는 "" REST API 사용
@@ -63,8 +63,8 @@ function Practice01() {
   //^ === Function === //
   // 예약 데이터 가져오기 함수 정의 (비동기)
   const fetchReservations = async () => {
-    setLoading(true);    // 로딩 시작
-    setError(null);      // 에러 초기화
+    setLoading(true); // 로딩 시작
+    setError(null); // 에러 초기화
 
     try {
       const response = await fetch(API_URL); // API 호출
@@ -78,21 +78,23 @@ function Practice01() {
 
       // 실제 예약 데이터 구조로 변환 (임시 매핑)
       // > slice(시작 인덱스, 끝 인덱스)까지의 얕은 복사본을 새로운 배열로 반환
-      const mappedData: Reservation[] = data.slice(0, 5).map((item: any, idx: number) => ({
-        id: item.id,                                    // mock id
-        customer_name: item.name,                       // mock 사용자 이름
-        truck_name: `Truck-${idx + 1}`,                 // 트럭 이름 예시
-        time_slot: `12:${idx}0 PM`,                     // 시간대 예시 (12시 부터 10분씩 차이)
-        status: idx % 2 === 0 ? "PENDING" : "CONFIRMED" // 홀 짝에 따라 상태 다르게
-      }));
-      
+      const mappedData: Reservation[] = data
+        .slice(0, 5)
+        .map((item: any, idx: number) => ({
+          id: item.id, // mock id
+          customer_name: item.name, // mock 사용자 이름
+          truck_name: `Truck-${idx + 1}`, // 트럭 이름 예시
+          time_slot: `12:${idx}0 PM`, // 시간대 예시 (12시 부터 10분씩 차이)
+          status: idx % 2 === 0 ? "PENDING" : "CONFIRMED", // 홀 짝에 따라 상태 다르게
+        }));
+
       setReservations(mappedData);
       setLoading(false);
-    } catch(e) {
+    } catch (e) {
       setLoading(false);
       setError((e as Error).message);
     }
-  }
+  };
 
   //@ 컴포넌트 마운트 시 예약 데이터 1회 로팅
   useEffect(() => {
@@ -101,66 +103,113 @@ function Practice01() {
 
   //@ 30초마다 자동 새로고침 (폴링)
   useEffect(() => {
+    const interavl = setInterval(() => {
+      console.log('예약 데이터 자동 세로고침');
+      fetchReservations();
+    }, 30000); // 30초
 
-  }, [])
+    // 언마운트 시 타이머 정리 (메모리 누수 방지)
+    return () => {
+      clearInterval(interavl);
+      console.log('폴링 중단 (컴포넌트 언마운트)');
+    }
+  }, []);
 
   // @ 예약 상태 변경 핸들러
-  const updateReservationStatus = async (id: number, newStatus: ReservationStatus) => {
+  const updateReservationStatus = async (
+    id: number,
+    newStatus: ReservationStatus
+  ) => {
+    try {
+      // 실제 API 환경에서는 HTTP PUT 요청전송
+      console.log(`PUT /api/v1/reservations/${id} -> ${newStatus}`);
 
-  }
+      // UI 즉시 반영
+      setReservations(prev => prev.map(reservation => 
+        reservation.id === id ? {...reservation, status: newStatus} : reservation))
+
+    } catch (e) {
+      console.error('예약 상태 변경 실패', e);
+    }
+  };
 
   //! 4. 로딩 / 에러 / 성공 분기 렌더링
-  if (loading) return <p>📌 예약 정보를 불러오는 중입니다...</p>
-  if (error) return <p>🚫 오류 발생: {error}</p>
+  if (loading) return <p>📌 예약 정보를 불러오는 중입니다...</p>;
+  if (error) return <p>🚫 오류 발생: {error}</p>;
 
   return (
-    <div style={{
-      padding: '20px', 
-      backgroundColor: '#f5f5f5', 
-      borderRadius: '12px'
-    }}>
+    <div
+      style={{
+        padding: "20px",
+        backgroundColor: "#f5f5f5",
+        borderRadius: "12px",
+      }}
+    >
       <h2>🚚 푸드트럭 예약 대시보드</h2>
 
       {/* 예약 데이터가 없을 때 */}
       {reservations.length === 0 && <p>현재 예약이 없습니다.</p>}
 
       <ul>
-        {reservations.map(reservation => (
-          <li key={reservation.id} style={{
-            background: 'white',
-            margin: '10px 0',
-            padding: '10px',
-            borderRadius: '8px'
-          }}>
-            <h4>{reservation.customer_name} ({reservation.truck_name})</h4>
+        {reservations.map((reservation) => (
+          <li
+            key={reservation.id}
+            style={{
+              background: "white",
+              margin: "10px 0",
+              padding: "10px",
+              borderRadius: "8px",
+            }}
+          >
+            <h4>
+              {reservation.customer_name} ({reservation.truck_name})
+            </h4>
             <p>시간대: {reservation.time_slot}</p>
-            <p>상태: {""} <b style={{
-              color: reservation.status === 'CONFIRMED' ? 'green' :
-                      reservation. status === 'PENDING' ? 'orange' : 'red'
-            }}>{reservation.status}</b></p>
+            <p>
+              상태: {""}{" "}
+              <b
+                style={{
+                  color:
+                    reservation.status === "CONFIRMED"
+                      ? "green"
+                      : reservation.status === "PENDING"
+                      ? "orange"
+                      : "red",
+                }}
+              >
+                {reservation.status}
+              </b>
+            </p>
 
             {/* 상태 변경 버튼 영역 */}
-            <div style={{ marginTop: '8px'}}>
+            <div style={{ marginTop: "8px" }}>
               {/* CONFIRMED가 아닐 때만 승인 버튼 */}
-              {reservation.status !== 'CONFIRMED' && (
-                <button onClick={() => updateReservationStatus(reservation.id, "CONFIRMED")}> 
-                승인
+              {reservation.status !== "CONFIRMED" && (
+                <button
+                  onClick={() =>
+                    updateReservationStatus(reservation.id, "CONFIRMED")
+                  }
+                >
+                  승인
                 </button>
               )}
 
               {/* CANCELLED가 아닐 때만 취소 버튼 */}
-              {reservation.status !== 'CANCELLED' && (
-                <button onClick={() => updateReservationStatus(reservation.id, "CANCELLED")}> 
-                취소
+              {reservation.status !== "CANCELLED" && (
+                <button
+                  onClick={() =>
+                    updateReservationStatus(reservation.id, "CANCELLED")
+                  }
+                >
+                  취소
                 </button>
               )}
-
             </div>
           </li>
         ))}
       </ul>
     </div>
-  )
+  );
 }
 
-export default Practice01
+export default Practice01;

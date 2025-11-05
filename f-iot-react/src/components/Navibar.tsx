@@ -15,15 +15,15 @@ import { NavLink } from 'react-router-dom';
 
 
 function Navibar() {
-  const links = ['/', 'basic', 'route', 'hooks', 'practice/post'];
+  const links = ['/', 'basic', 'route', 'hooks', 'practice/post', 'practice/search'];
 
   return (
     <div style={{
       display: 'flex',
       flexWrap: 'wrap',
       justifyContent: 'space-around',
-      margin: '10px',
-      padding: '10px 20px',
+      margin: '5px',
+      padding: '5px 10px',
       border: '1px solid black',
       borderRadius: '5px'
     }}>
@@ -36,7 +36,7 @@ function Navibar() {
             color: isActive ? 'white' : 'black',
             backgroundColor: isActive ? 'black' : 'white',
             margin: '5px',
-            padding: '10px 20px',
+            padding: '5px 10px',
             borderRadius: '5px'
           })}
           >

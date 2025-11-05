@@ -1,5 +1,5 @@
-import type { Todo } from '@/_practice/c_hooks/TodoAppLocalStorage'
-import React from 'react'
+import type { Todo } from "@/_practice/c_hooks/TodoAppLocalStorage";
+import React from "react";
 
 interface TodoItemProps {
   todo: Todo;
@@ -12,15 +12,15 @@ function TodoItem({ todo, toggleTodo, deleteTodo }: TodoItemProps) {
     <div>
       <li>
         <span
-        style={{ textDecoration: todo.completed ? 'line-through' : 'none'}}
-        onClick={() => toggleTodo(todo.id)}
+          style={{ textDecoration: todo.completed ? "line-through" : "none" }}
+          onClick={() => toggleTodo(todo.id)}
         >
           {todo.text}
         </span>
         <button onClick={() => deleteTodo(todo.id)}>Delete</button>
       </li>
     </div>
-  )
+  );
 }
 
-export default TodoItem
+export default TodoItem;

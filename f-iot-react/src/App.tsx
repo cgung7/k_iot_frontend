@@ -3,6 +3,7 @@ import Basic from '@/pages/a_basic';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import RoutePages from '@/pages/b_Route';
 import Hooks from '@/pages/c_hooks';
+import HTTP from '@/pages/d_http';
 
 import Navibar from './components/Navibar';
 import PostList from './_practice/a_basic/PostList';
@@ -31,6 +32,7 @@ function App() {
         - 중첩된 자식 라우트 인식 */}
         <Route path='/route/*' element={<RoutePages />} />
         <Route path='/hooks' element={<Hooks />} />
+        <Route path='/http' element={<HTTP />} />
 
         {/* //@ _practice 실습 코드 */}
         <Route path='/practice/post' element={<PostList />} />

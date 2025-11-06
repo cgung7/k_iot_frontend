@@ -1,4 +1,7 @@
+import axios from 'axios'
 import React from 'react'
+import PostForm from './PostForm';
+import PostList from './PostList';
 
 //! Axios
 // : 브라우저나 Node.js 환경에서 HTTP 요청을 쉽게 처리할 수 있게 도와주는
@@ -22,9 +25,41 @@ import React from 'react'
 // >> data(서버로 전송할 JSON 데이터)
 
 
+//@ 2) 기본 설정 (커스텀 Axios 인스턴스를 생성하는 함수)
+// - 기본 Axios 사용 대신
+//    , 프로젝트 전반에서 공통적으로 사용하는 설정을 미리 지정 가능
+//    , 반복 코드 없이 깔끔하기 API 요청 가능
+// 1) const instance명 = axios.create(config);
+
+//    cf) config: 다양한 설정을 담은 객체
+
+export const mockApi = axios.create({
+  //config: axios 설정 객체
+  
+  //^ 1. 모든 요청의 기본 주소(URL) 지정
+  // : http://localhost:8080/api/v1
+  baseURL: "https://jsonplaceholder.typicode.com",
+
+  //^ 2. 요청 헤더를 기본 지정
+  headers: {
+    "Content-Type": "application/json",
+    // "Authorization": "인증 토큰(Bearer Token)"
+  }
+});
+
+//? Axios 인스턴스 사용 방법
+// mockApi.get("/posts")
+// === axios.get("https://jsonplaceholder.typicode.com/posts");
+
+
 function B_Axios() {
   return (
-    <div>B_Axios</div>
+    <div>
+      <h1>게시판 CRUD 예제 (Axios/localStorage)</h1>
+      <PostForm />
+      <hr />
+      <PostList />
+    </div>
   )
 }
 

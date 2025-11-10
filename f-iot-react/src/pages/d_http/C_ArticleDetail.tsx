@@ -1,0 +1,47 @@
+import { type ArticleDetailResponse, getArticleById } from '@/apis/articleApi';
+import React, { useEffect, useState } from 'react'
+
+interface Props {
+  articleId: number;
+}
+
+function C_ArticleDetail({ articleId }: Props) {
+  const [article, setArticle] = useState<ArticleDetailResponse | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const fetchArticleDetail = async () => {
+    try {
+      setLoading(true);
+      const data = await getArticleById(articleId);
+      setArticle(data);
+    } catch (e) {
+      console.error("게시글 상세 조회 실패: ", e);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    fetchArticleDetail();
+  }, [articleId]);
+
+  if (loading) return <p>불러오는 중...</p>
+  if (!article) return <p>게시글 데이털르 불러올 수 없습니다...</p>
+
+  return (
+    <div>
+      <h3>{article.title}</h3>
+      <p>{article.content}</p>
+      <p>
+        작성자: <strong>{article.authorLoginId}</strong>
+      </p>
+      <small>
+        작성일: {new Date(article.createAt).toLocaleDateString()}
+        <br />
+        수정일: {new Date(article.updateAt).toLocaleTimeString()}
+      </small>
+    </div>
+  )
+}
+
+export default C_ArticleDetail

@@ -20,20 +20,20 @@ export interface ArticleListResponse {
   id: number;
   title: string;
   authorLoginId: string;
-  createAt: string;
+  createdAt: string;
 }
 
 //? 게시글 목록 응답 전체
 export type AtricleListResponseList = ArticleListResponse[];
 
-//? 게시글 응답 DTO (Detail)]
+//? 게시글 응답 DTO (Detail)
 export interface ArticleDetailResponse {
   id: number;
   title: string;
   content: string;
   authorLoginId: string;
-  createAt: string;
-  updateAt: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 //^ == 인증 객체 필요 X == //
@@ -42,13 +42,13 @@ export const getAllArticles = async () => {
   const res = await publicApi.get("/articles");
   //? cf) ResponseDto.data 실제 데이터값
   return res.data.data;
-}
+};
 
 //! 게시글 전체 조회
 export const getArticleById = async (id: number) => {
   const res = await publicApi.get(`/articles/${id}`);
   return res.data.data;
-}
+};
 
 //! 게시글 단건 조회
 // export const createArticle = async (data: ArticleCreateRequest) => {
@@ -64,17 +64,16 @@ export const getArticleById = async (id: number) => {
 export const createArticle = async (data: ArticleCreateRequest) => {
   const res = await privateApi.post("/articles", data);
   return res.data.data;
-  }
-
+};
 
 //! 게시글 수정
 export const updateArticle = async (id: number, data: ArticleUpdateRequest) => {
-const res = await privateApi.put(`/articles/${id}`, data);
-return res.data.data;
-}
+  const res = await privateApi.put(`/articles/${id}`, data);
+  return res.data.data;
+};
 
 //! 게시글 삭제
 export const deleteArticle = async (id: number) => {
   const res = await privateApi.delete(`/articles/${id}`);
   return res.data.data;
-}
+};

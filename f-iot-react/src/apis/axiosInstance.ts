@@ -4,7 +4,8 @@
 
 import axios, { type InternalAxiosRequestConfig } from "axios";
 
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:8080/api/v1";
+const API_BASE =
+  import.meta.env.VITE_API_BASE || "http://localhost:8080/api/v1";
 
 //? 1. 기본 인스턴스 (토큰이 필요없는 공개 API)
 export const publicApi = axios.create({
@@ -13,7 +14,7 @@ export const publicApi = axios.create({
   timeout: 10000,
   headers: {
     "Content-Type": "application/json",
-    Accept: "application/json"
+    Accept: "application/json",
   },
 });
 
@@ -24,24 +25,30 @@ export const privateApi = axios.create({
   timeout: 10000,
   headers: {
     "Content-Type": "application/json",
-    Accept: "application/json"
+    Accept: "application/json",
   },
   // 세션이나 쿠키 인증용: 쿠키나 인증 헤더 정보를 포함시켜서 요청을 보냄
   withCredentials: true,
 });
 
 //@ 요청 인터셉터 설정 (privateApi만)
-privateApi.interceptors.request.use((config: InternalAxiosRequestConfig) => {
-  const token = localStorage.getItem("accessToken");
-  if (token && config.headers) {
-    config.headers["Authorization"] = `Bearer ${token}`;
-  }
-  return config;
-}, (e) => Promise.reject(e)) ;
+privateApi.interceptors.request.use(
+  (config: InternalAxiosRequestConfig) => {
+    const token = localStorage.getItem("accessToken");
+    if (token && config.headers) {
+      config.headers["Authorization"] = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (e) => Promise.reject(e)
+);
 
 //@ 응답 인터셉터 설정
-privateApi.interceptors.response.use(response => response, async (e) => {
-  console.error("Axios Response Error: ", e);
-  alert("서버 요청 중 오류가 발생하였습니다.");
-  return Promise.reject(e);
-})
+privateApi.interceptors.response.use(
+  (response) => response,
+  async (e) => {
+    console.error("Axios Response Error: ", e);
+    alert("서버 요청 중 오류가 발생하였습니다.");
+    return Promise.reject(e);
+  }
+);

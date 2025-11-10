@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import C_ArticleList from './C_ArticleList';
-import C_ArticleDetail from './C_ArticleDetail';
-import C_ArticleForm from './C_ArticleForm';
-import { type AtricleListResponseList, getAllArticles, type ArticleListResponse } from '@/apis/articleApi';
+import React, { useEffect, useState } from "react";
+import C_ArticleList from "./C_ArticleList";
+import C_ArticleDetail from "./C_ArticleDetail";
+import C_ArticleForm from "./C_ArticleForm";
+import {
+  type AtricleListResponseList,
+  getAllArticles,
+  type ArticleListResponse,
+} from "@/apis/articleApi";
 
 function C_ArticlePage() {
   // 게시글 목록
@@ -22,7 +26,7 @@ function C_ArticlePage() {
     } finally {
       setLoading(false);
     }
-  }
+  };
 
   //? 초기 목록 로드
   useEffect(() => {
@@ -32,15 +36,14 @@ function C_ArticlePage() {
   //^ === Event Handler === //
   // 새 게시글 추가 (ArticleForm 콜백)
   const handleArticleCreated = async (newArticle: ArticleListResponse) => {
-    setArticles(prev => [newArticle, ...prev]);
-  }
+    setArticles((prev) => [newArticle, ...prev]);
+  };
 
   return (
-
-    <div style={{display: 'flex', gap: '30px'}}>
+    <div style={{ display: "flex", gap: "30px" }}>
       {/* //@ 왼쪽 - 게시글 목록 */}
       <div style={{ width: "30%" }}>
-        {loading? (
+        {loading ? (
           <p>로딩 중...</p>
         ) : (
           <C_ArticleList articles={articles} onSelect={setSelectedId} />
@@ -50,7 +53,7 @@ function C_ArticlePage() {
       {/* //@ 중앙 - 게시글 상세 */}
       <div style={{ width: "40%" }}>
         {selectedId ? (
-          <C_ArticleDetail articleId={selectedId}/>
+          <C_ArticleDetail articleId={selectedId} />
         ) : (
           <p>게시글을 선택해주세요.</p>
         )}
@@ -58,10 +61,10 @@ function C_ArticlePage() {
 
       {/* //@ 오른쪽 - 게시글 작성 폼 */}
       <div style={{ width: "30%" }}>
-        <C_ArticleForm onSuccess={handleArticleCreated}/>
+        <C_ArticleForm onSuccess={handleArticleCreated} />
       </div>
     </div>
-  )
+  );
 }
 
-export default C_ArticlePage
+export default C_ArticlePage;

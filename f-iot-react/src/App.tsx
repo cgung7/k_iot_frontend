@@ -4,6 +4,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import RoutePages from '@/pages/b_Route';
 import Hooks from '@/pages/c_hooks';
 import HTTP from '@/pages/d_http';
+import GlobalState from '@/pages/d_http/e_global_state';
 
 import Navibar from './components/Navibar';
 import PostList from './_practice/a_basic/PostList';
@@ -14,10 +15,10 @@ import Z_ProductDetail from './pages/b_Route/Z_ProductDetail';
 import Z_ProductInfo from './pages/b_Route/Z_ProductInfo';
 import Z_ProductReviews from './pages/b_Route/Z_ProductReviews';
 import Z_Dashboard from './pages/b_Route/Z_Dashboard';
+import { useCountStore } from './pages/d_http/e_global_state/B_Zustand';
 // 파일명 없으면 무조건 해당 파일의 index 라는 이름이 파일을 가져옴
 
 function App() {
-
   return (
     <>
       {/* 경로와 상관없이 렌더링 */}
@@ -33,6 +34,7 @@ function App() {
         <Route path='/route/*' element={<RoutePages />} />
         <Route path='/hooks' element={<Hooks />} />
         <Route path='/http' element={<HTTP />} />
+        <Route path='/global-state' element={<GlobalState />} />
 
         {/* //@ _practice 실습 코드 */}
         <Route path='/practice/post' element={<PostList />} />

@@ -1,5 +1,5 @@
-import { type ArticleDetailResponse, getArticleById } from '@/apis/articleApi';
-import React, { useEffect, useState } from 'react'
+import { type ArticleDetailResponse, getArticleById } from "@/apis/articleApi";
+import React, { useEffect, useState } from "react";
 
 interface Props {
   articleId: number;
@@ -19,14 +19,14 @@ function C_ArticleDetail({ articleId }: Props) {
     } finally {
       setLoading(false);
     }
-  }
+  };
 
   useEffect(() => {
     fetchArticleDetail();
   }, [articleId]);
 
-  if (loading) return <p>불러오는 중...</p>
-  if (!article) return <p>게시글 데이털르 불러올 수 없습니다...</p>
+  if (loading) return <p>불러오는 중...</p>;
+  if (!article) return <p>게시글 데이털르 불러올 수 없습니다...</p>;
 
   return (
     <div>
@@ -36,12 +36,12 @@ function C_ArticleDetail({ articleId }: Props) {
         작성자: <strong>{article.authorLoginId}</strong>
       </p>
       <small>
-        작성일: {new Date(article.createAt).toLocaleDateString()}
+        작성일: {new Date(article.createdAt).toLocaleDateString()}
         <br />
-        수정일: {new Date(article.updateAt).toLocaleTimeString()}
+        수정일: {new Date(article.updatedAt).toLocaleTimeString()}
       </small>
     </div>
-  )
+  );
 }
 
-export default C_ArticleDetail
+export default C_ArticleDetail;

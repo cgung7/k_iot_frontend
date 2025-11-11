@@ -3,12 +3,13 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function SignIn() {
+  //^ == Hooks == //
   const navigate = useNavigate();
   const { login, isLoading, error, user } = useAuthStore();
-
   const [loginId, setLoginId] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
+  //^ == Event Handler == //
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     await login(loginId, password);

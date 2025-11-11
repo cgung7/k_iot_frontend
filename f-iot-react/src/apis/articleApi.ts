@@ -24,7 +24,7 @@ export interface ArticleListResponse {
 }
 
 //? 게시글 목록 응답 전체
-export type AtricleListResponseList = ArticleListResponse[];
+export type ArticleListResponseList = ArticleListResponse[];
 
 //? 게시글 응답 DTO (Detail)
 export interface ArticleDetailResponse {
@@ -40,6 +40,7 @@ export interface ArticleDetailResponse {
 //! 게시글 생성
 export const getAllArticles = async () => {
   const res = await publicApi.get("/articles");
+  // res.data: 실제 axios 결과값 (응답)
   //? cf) ResponseDto.data 실제 데이터값
   return res.data.data;
 };
@@ -50,6 +51,7 @@ export const getArticleById = async (id: number) => {
   return res.data.data;
 };
 
+//^ == 인증 객체 필요 O == //
 //! 게시글 단건 조회
 // export const createArticle = async (data: ArticleCreateRequest) => {
 //   // 토큰 가져오기 문법

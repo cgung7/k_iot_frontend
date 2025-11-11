@@ -1,8 +1,8 @@
-import type { AtricleListResponseList } from "@/apis/articleApi";
+import type { ArticleListResponseList } from "@/apis/articleApi";
 import React from "react";
 
 interface Props {
-  articles: AtricleListResponseList;
+  articles: ArticleListResponseList ;
   onSelect: (id: number) => void;
 }
 
@@ -18,7 +18,7 @@ function C_ArticleList({ articles, onSelect }: Props) {
             style={{ cursor: "pointer", marginBottom: "10px" }}
             onClick={() => onSelect(article.id)}
           >
-            <strong>{article.title}</strong> = {article.authorLoginId}
+            <strong>{article.title}</strong> - {article.authorLoginId}
             <br />
             <small>{new Date(article.createdAt).toLocaleString()}</small>
           </li>

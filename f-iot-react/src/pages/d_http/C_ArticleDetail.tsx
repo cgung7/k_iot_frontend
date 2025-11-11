@@ -26,7 +26,7 @@ function C_ArticleDetail({ articleId }: Props) {
   }, [articleId]);
 
   if (loading) return <p>불러오는 중...</p>;
-  if (!article) return <p>게시글 데이털르 불러올 수 없습니다...</p>;
+  if (!article) return <p>게시글 데이터를 불러올 수 없습니다...</p>;
 
   return (
     <div>

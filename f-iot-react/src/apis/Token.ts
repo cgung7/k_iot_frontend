@@ -25,8 +25,8 @@
 
 //? Refresh Token의 역할
 // : Access Token을 재발급할 수 있는 권한을 의미                         [AccessToken]
-// - 만료 수명(길다)                                                | 짧음 (15 ~ 30분)
+// - 만료 수명(길다)                                                 | 짧음 (15 ~ 30분)
 // - 저장 위치 > HTTP Only 쿠키 (JS 접근 불가)                        | 메모리 / localStorage
 // - 노출 위험 > 낮음 (쿠키로만 전송)                                 | 높음 (API 헤더에 직접 포함)
 // - 역할 > Access Token 재발급용                                   | API 요청 시 인증 증명
-// - 노출 시 위함 > Access Token 재발급만 가능, 즉시 사용 불가          | 즉시 피해 가능
+// - 노출 시 위함 > Access Token 재발급만 가능, 즉시 사용 불가         | 즉시 피해 가능

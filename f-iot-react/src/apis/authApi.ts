@@ -17,6 +17,7 @@ export const signIn = async (data: LoginRequest): Promise<SignInResponse> => {
   const res = await publicApi.post("/auth/sign-in", data);
 
   if (!res.data.success) throw new Error("login failed");
+
   return res.data.data;
 
 }
@@ -29,6 +30,8 @@ export const sighOut = async (): Promise<void> => {
 //! AccessToken 리프레스
 export const refreshAccessToken = async (): Promise<string> => {
   const res = await publicApi.post("/auth/refresh-token", {}, { withCredentials: true });
+  
   if (!res.data.success) throw new Error('Refresh failed');
+
   return res.data.data.accessToken;
 }

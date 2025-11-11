@@ -7,10 +7,10 @@ import { create } from "zustand";
 
 //? 전역상태 관리할 데이터 + 함수
 interface UIState {
-  isSidebarOpen: boolean; // 사이드바 열림/닫힘 여부
-  isModalOpen: boolean; // 모달 표시 여부
-  darkMode: boolean; // 다크모드 활성화 여부
-  toastMessage: string | null; // 토스트 메세지  (없을 때는 null)
+  isSidebarOpen: boolean;             // 사이드바 열림/닫힘 여부
+  isModalOpen: boolean;              // 모달 표시 여부
+  darkMode: boolean;                 // 다크모드 활성화 여부
+  toastMessage: string | null;      // 토스트 메세지  (없을 때는 null)
 
   toggleSidebar: () => void;
   toggleDarkMode: () => void;

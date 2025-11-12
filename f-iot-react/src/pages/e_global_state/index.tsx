@@ -4,6 +4,7 @@ import ToggleSection from '@/components/ToggleSection'
 import B_Zustand from './B_Zustand'
 import SignIn from './SignIn'
 import GlobalData from './GlobalData'
+import TruckReservationList from './TruckReservationList'
 
 function Index() {
   return (
@@ -33,6 +34,10 @@ function Index() {
 
       <ToggleSection title='4. zustand 연습(global-data)'>
         <GlobalData />
+      </ToggleSection>
+      
+      <ToggleSection title='5. zustand 연습(reservation)'>
+        <TruckReservationList />
       </ToggleSection>
 
     </div>

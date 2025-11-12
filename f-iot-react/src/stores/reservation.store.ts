@@ -67,7 +67,7 @@ export const useReservationStore = create<ReservationState>((set) => ({
         return {
           reservationList: exists
             ? state.reservationList.map(reservation => (reservation.id === dto.id ? mapped : reservation))
-            : [ mapped, ...state.reservationList]
+            : [ mapped, ...state.reservationList],
         }
       });
 

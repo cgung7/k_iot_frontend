@@ -41,7 +41,6 @@ export const useReservationStore = create<ReservationState>((set) => ({
   },
   fetchReservationById: async (truckId, reservationId) => {
     try {
-
       const dto = await getReservation(truckId, reservationId);
       if (!dto) return null;
 

@@ -3,6 +3,7 @@ import A_Context from './A_Context'
 import ToggleSection from '@/components/ToggleSection'
 import B_Zustand from './B_Zustand'
 import SignIn from './SignIn'
+import GlobalData from './GlobalData'
 
 function Index() {
   return (
@@ -28,6 +29,10 @@ function Index() {
 
       <ToggleSection title='3. SignIn 페이지'>
         <SignIn />
+      </ToggleSection>
+
+      <ToggleSection title='4. zustand 연습(global-data)'>
+        <GlobalData />
       </ToggleSection>
 
     </div>

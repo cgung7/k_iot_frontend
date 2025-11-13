@@ -53,7 +53,7 @@ const LoginContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: linear-gradient(160deg, #f4d365 0%, #fda085 100%);
+  background: linear-gradient(160deg, #f4d365 0%, #fda085 100%);
   /* 
     @ clamp: CSS 함수
     : 값을 최소값, 최대값 사이로 제한(clamp)
@@ -94,13 +94,14 @@ const Subtitle = styled.p`
 
 const Form = styled.form`
   display: grid;
+  gap: 1rem;
   width: 100%;
 `;
 
 const Input = styled.input`
   padding: 0.9rem;
   border: 1px solid #ddd;
-  border-radius: 0,8rem;
+  border-radius: 0.8rem;
   font-size: 16px;
   width: 100%;
   transition: border 0.2s;

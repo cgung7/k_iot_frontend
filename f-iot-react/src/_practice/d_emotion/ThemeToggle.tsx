@@ -1,10 +1,10 @@
-import { useTheme } from '@emotion/react';
-import styled from '@emotion/styled';
-import React from 'react'
+import { useTheme } from "@emotion/react";
+import styled from "@emotion/styled";
+import React from "react";
 
 type Props = {
   toggle: () => void;
-}
+};
 
 // 다크 모드 토글 버튼 UI + 이벤트 핸들러
 function ThemeToggle({ toggle }: Props) {
@@ -14,16 +14,16 @@ function ThemeToggle({ toggle }: Props) {
 
   return (
     <ToggleButton onClick={toggle}>
-      {theme.mode === 'light' ? 'Dark'  :'light'}
+      {theme.mode === "light" ? "Dark" : "light"}
     </ToggleButton>
-  )
+  );
 }
 
-export default ThemeToggle
+export default ThemeToggle;
 
 //! 라이트/다크 모드 전환 버튼 - 페이지 여러 곳에서 재사용 (컴포넌트 분리)
 const ToggleButton = styled.button`
-  background: ${({theme}) => theme.colors.accent};
+  background: ${({ theme }) => theme.colors.accent};
   color: white;
   border: none;
   border-radius: 1rem;

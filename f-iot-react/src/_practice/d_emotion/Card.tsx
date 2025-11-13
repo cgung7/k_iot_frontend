@@ -1,22 +1,21 @@
-import styled from '@emotion/styled';
-import React from 'react'
+import styled from "@emotion/styled";
+import React from "react";
 
 type CardProps = {
   title: string;
   content: string;
-}
+};
 
-
-function Card({ title, content}: CardProps) {
+function Card({ title, content }: CardProps) {
   return (
     <CardCantainer>
       <h3>{title}</h3>
       <p>{content}</p>
     </CardCantainer>
-  )
+  );
 }
 
-export default Card
+export default Card;
 
 const CardCantainer = styled.div`
   background: ${({ theme }) => theme.colors.card};
@@ -30,11 +29,10 @@ const CardCantainer = styled.div`
   h3 {
     font-size: clamp(1rem, 2vw, 1.5rem);
     margin-bottom: 0.5rem;
-    color: ${({theme}) => theme.colors.accent};
+    color: ${({ theme }) => theme.colors.accent};
   }
 
   p {
     font-size: clamp(0.9rem, 1.5vw, 1rem);
   }
-
 `;

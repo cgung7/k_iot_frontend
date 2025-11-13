@@ -25,7 +25,7 @@ function Dashboard({ toggleTheme }: Props) {
       </Header>
 
       <Grid>
-        {data.map(item => (
+        {data.map((item) => (
           <Card key={item.title} title={item.title} content={item.content} />
         ))}
       </Grid>

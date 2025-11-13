@@ -1,45 +1,58 @@
-import styled from '@emotion/styled'
-import React from 'react'
-import { Input } from './Input';
-import { Button } from './Button';
-import { theme } from './theme';
+import styled from "@emotion/styled";
+import React, { useState } from "react";
+import { Input } from "./Input";
+import { Button } from "./Button";
+import { theme } from "./theme";
 
 function LoginForm() {
+  const [mode, setMode] = useState<"login" | "signup">("login");
   return (
     <Container>
       <Card>
-        <Title>로그인</Title>
-        <Subtitle>모임 생성 시스템에 접속하세요.</Subtitle>
-        <Form>
-          <Input />
-          <Input />
-          <Button>로그인</Button>
-        </Form>
-          <Footer>계정이 없으신가요? 회원가입</Footer>
+        {mode === "login" ? (
+          <>
+            <Title>로그인</Title>
+            <Subtitle>모임 생성 시스템에 접속하세요.</Subtitle>
+            <Form>
+              <Input />
+              <Input />
+              <Button>로그인</Button>
+            </Form>
+            <Footer>
+              계정이 없으신가요?
+              <LinkText onClick={() => setMode("signup")}>회원가입</LinkText>
+            </Footer>
+          </>
+        ) : (
+          <>
+            <Title>회원가입</Title>
+            <Subtitle>모임 생성 시스템을 시작하세요.</Subtitle>
+            <Form>
+              <Input type="text" placeholder="아이디" />
+              <Input type="password" placeholder="비밀번호" />
+              <Input type="text" placeholder="이름" />
+              <Input type="email" placeholder="이메일" />
+            </Form>
+            <Footer>
+              계정이 있으신가요?{" "}
+              <LinkText onClick={() => setMode("login")}>로그인</LinkText>
+            </Footer>
+          </>
+        )}
       </Card>
     </Container>
-  )
+  );
 }
 
-export default LoginForm
+export default LoginForm;
 
 export const SignUpForm = () => {
   return (
     <Container>
-      <Card>
-        <Title>회원가입</Title>
-        <Subtitle>모임 생성 시스템을 시작하세요.</Subtitle>
-        <Form>
-          <Input type='text' placeholder='아이디'/>
-          <Input type='password' placeholder='비밀번호'/>
-          <Input type='text' placeholder='이름'/>
-          <Input type='email' placeholder='이메일'/>
-        </Form>
-      </Card>
-
+      <Card></Card>
     </Container>
-  )
-}
+  );
+};
 
 const Container = styled.div`
   display: flex;
@@ -51,7 +64,7 @@ const Container = styled.div`
 `;
 
 const Card = styled.div`
-display: grid;
+  display: grid;
   gap: 1.5rem;
   background-color: ${theme.colors.background};
   padding: clamp(2rem, 5vw, 4rem);
@@ -81,4 +94,13 @@ const Footer = styled.p`
   font-size: 0.9rem;
   color: #888;
   text-align: center;
+`;
+
+const LinkText = styled.span`
+  color: ${theme.colors.primary};
+  font-weight: 600;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
 `;

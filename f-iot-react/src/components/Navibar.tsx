@@ -15,7 +15,7 @@ import { NavLink } from 'react-router-dom';
 
 
 function Navibar() {
-  const links = ['/', 'basic', 'route', 'hooks', 'http', 'global-state', 'style', 'practice/post', 'practice/search'];
+  const links = ['/', 'basic', 'route', 'hooks', 'http', 'global-state', 'style', 'practice/post', 'practice/search', 'p/dashboard'];
 
   return (
     <div style={{

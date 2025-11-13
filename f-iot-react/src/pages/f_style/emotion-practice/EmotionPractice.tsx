@@ -1,5 +1,5 @@
-import React from 'react'
-import LoginForm from './LoginForm'
+import React, { useState } from 'react'
+import LoginForm, { SignUpForm } from './LoginForm'
 
 function EmotionPractice() {
   return (

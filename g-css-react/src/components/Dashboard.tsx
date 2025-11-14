@@ -14,44 +14,45 @@ function Dashboard({ toggleTheme }: { toggleTheme: () => void }) {
   ];
 
   return (
-  <Page>
-    <Header>
-      <h1>대시보드</h1>
-      <ThemeToggle toggle={toggleTheme}/>
-    </Header>
+    <Page>
+      <Header>
+        <h1>대시보드</h1>
+        <ThemeToggle toggle={toggleTheme} />
+      </Header>
 
-    <Grid>
-      {datas.map(data => (
-        // 카드 컴포넌트
-        //? 배열을 순회하여(map) 나열된 컴포넌트들은
-        //    , 각 컴포넌트의 구별을 위해 key 속성이 필수
-        //    > key 속성값은 고유값이여야 한다
-        <CardContainer key={data.title}>
-          <CardTitle>{data.title}</CardTitle>
-          <div style={{
-            fontSize: 'clamp(1.25rem, 2.5vw, 1.5rem)',
-            fontWeight: 700
-          }}>
-            {data.value}
-          </div>
+      <Grid>
+        {datas.map((data) => (
+          // 카드 컴포넌트
+          //? 배열을 순회하여(map) 나열된 컴포넌트들은
+          //    , 각 컴포넌트의 구별을 위해 key 속성이 필수
+          //    > key 속성값은 고유값이여야 한다
+          <CardContainer key={data.title}>
+            <CardTitle>{data.title}</CardTitle>
+            <div
+              style={{
+                fontSize: "clamp(1.25rem, 2.5vw, 1.5rem)",
+                fontWeight: 700,
+              }}
+            >
+              {data.value}
+            </div>
+          </CardContainer>
+        ))}
+
+        {/* 차트 섹션: Chart.js 버전 */}
+        <CardContainer>
+          <CardTitle>매출(Chart.js)</CardTitle>
+          <SalesChartChartJS />
         </CardContainer>
-      ))}
 
-      {/* 차트 섹션: Chart.js 버전 */}
-      <CardContainer>
-        <CardTitle>매출(Chart.js)</CardTitle>
-        <SalesChartChartJS />
-      </CardContainer>
-
-      {/* 차트 섹션: ReCharts 버전 */}
-      <CardContainer>
-        <CardTitle>매출(Recharts)</CardTitle>
-        <SalesChartRecharts />
-      </CardContainer>
-    </Grid>
-  </Page>
-
-);
+        {/* 차트 섹션: ReCharts 버전 */}
+        <CardContainer>
+          <CardTitle>매출(Recharts)</CardTitle>
+          <SalesChartRecharts />
+        </CardContainer>
+      </Grid>
+    </Page>
+  );
 }
 
 export default Dashboard;

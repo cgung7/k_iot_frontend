@@ -56,16 +56,16 @@ const options = {
   plugins: {
     legend: { display: false },
     tooltip: {
-      mode: "index",
+      mode: "index" as const,
       intersect: false,
     },
   },
-  interaction: {},
-  // scales: {
-  //   x : { grid: { display: false }, ticks: { maxRotation: 0}},
-  //   y : { grid: { color: 'rgba(255, 255, 255, 0.04)'}}
-  // }
-};
+  // interaction: {},
+  scales: {
+    x : { grid: { display: false }, ticks: { maxRotation: 0}},
+    y : { grid: { color: 'rgba(255, 255, 255, 0.04)'}}
+  }
+} ;
 
 //! 차트를 포함할 컴포넌트
 export const ChartWrapper = styled.div`

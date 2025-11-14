@@ -18,7 +18,7 @@ export const CardContainer = styled.div`
   gap: 12px;
 `;
 
-export const CartTitle = styled.div`
+export const CardTitle = styled.div`
   margin: 0;
   /* //@ 내부 글자에 clamp 사용 */
   font-size: clamp(1rem, 2vw, 1.25rem);
